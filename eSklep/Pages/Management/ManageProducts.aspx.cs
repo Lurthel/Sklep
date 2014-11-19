@@ -2,6 +2,7 @@
 using System.Collections;
 using System.IO;
 
+
 public partial class Pages_Management_ManageProducts : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -96,4 +97,5 @@ public partial class Pages_Management_ManageProducts : System.Web.UI.Page
 
         return product;
     }
+     
 }

@@ -120,6 +120,10 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="App_Data\baza.mdf" />
+    <Content Include="App_Data\baza_log.ldf">
+      <DependentUpon>baza.mdf</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Code\Model.Context.tt">
