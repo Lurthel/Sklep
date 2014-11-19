@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using eSklep.App_Code;
 
 public partial class Pages_Management_ManageProductTypes : System.Web.UI.Page
 {
