@@ -1,0 +1,69 @@
+﻿@{
+    Layout = "~/_SiteLayout.cshtml";
+    Page.Title = "Add Product";
+    var result = "";
+
+    if(IsPost) {
+        // Form submitted, save it!
+
+        var name = Request.Form["name"];
+        var desc = Request.Form["desc"];
+        var price = Request.Form["price"];
+        var image = WebImage.GetImageFromRequest();
+        var fileName = "";
+
+        if(image != null) {
+            // get the file name
+            fileName = Path.GetFileName(image.FileName);
+            var mapPath = Server.MapPath("~/Images/Products/" + fileName);
+            var thumbPath = Server.MapPath("~/Images/Products/Thumbnails/" + fileName);
+            // save the image
+            image.Save(mapPath);
+            image.Save(thumbPath);
+        }
+
+        var db = Database.Open("bakery");
+        db.Execute("INSERT INTO Products (Name, Description, Price, ImageName) VALUES (@0, @1, @2, @3)", name, desc, price, fileName);
+        result = "Your product was saved. View it in your shop website!";
+    }
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <style>
+            label {
+                margin: 0;
+                display: block;
+            }
+            input[type="text"], textarea {
+                padding:  2px;
+                width: 300px;
+                font-family: inherit;
+            }
+            textarea {
+                height: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        @result
+        <h4>Details</h4>
+        <p>Add details for you product then save it to the database.</p>
+        <form method="post" enctype="multipart/form-data">
+            <label id="name">Product Name</label><br />
+            <input type="text" name="name" id="name" /><br />
+            <label id="price">Product Price</label><br />
+            <input type="text" name="price" id="price" /><br />
+            <label id="desc">Product Description</label><br />
+            <textarea name="desc" id="desc"></textarea><br />
+            <label id="name">Product Image</label><br />
+            <input type="file" name="image" id="name" accept="Image/*" /><br />
+            <p>Using this, you can add an image that will be shown to the user when he will open the product page.</p>
+            <input type="submit" value="Save" />
+        </form>
+    </body>
+</html>
