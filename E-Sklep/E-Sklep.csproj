@@ -99,6 +99,7 @@
     <Compile Include="Admin\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BusinessLayer\Order.cs" />
     <Compile Include="BusinessLayer\ShoppingCart.cs" />
     <Compile Include="DataLayer\DataAccess.cs" />
     <Compile Include="Default.aspx.cs">

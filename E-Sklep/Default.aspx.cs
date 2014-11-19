@@ -11,6 +11,7 @@ using System.Web.Configuration;
 using System.Data.SqlClient;
 
 
+
 namespace E_Sklep
 {
     public partial class Default : System.Web.UI.Page
@@ -147,10 +148,7 @@ namespace E_Sklep
             return dt;
         }
 
-        protected void btnCheckOut_Click(object sender, EventArgs e)
-        { 
-        
-        }
+       
 
         protected void btnRemoveFromCart_Click(object sender, EventArgs e)
         {
@@ -167,6 +165,46 @@ namespace E_Sklep
                 Session["MyCart"] = dt;
             }
             GetMyCart();
+        }
+
+        protected void zamowButton_Click(object sender, EventArgs e)
+        {
+
+            string productids = string.Empty;
+            DataTable dt = (DataTable)Session["MyCart"];
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                if (i == 0 || dt.Rows.Count == 1)
+                {
+                    productids = productids + dt.Rows[i]["ProductID"].ToString();
+                }
+                else
+                {
+                    productids = productids + "," + dt.Rows[i]["ProductID"].ToString();
+                }
+            }
+
+            Order k = new Order()
+            {
+                Dane = imienazwtb.Text,
+                Adres = adrtb.Text,
+                Telefon = teltb.Text,
+                Produkty = productids,
+                
+            };
+            k.AddNewOrder();
+          
+            ClearText();
+
+       
+
+        }
+        private void ClearText()
+        {
+            imienazwtb.Text = string.Empty;
+            adrtb.Text = string.Empty;
+            teltb.Text = string.Empty;
         }
     }
 }

@@ -6,6 +6,15 @@
 <head runat="server">
     <title></title>
  <link rel="stylesheet" type="text/css" href="Styles.css" />   
+    <style type="text/css">
+        .auto-style2 {
+            width: 121px;
+            height: 26px;
+        }
+        .auto-style3 {
+            height: 26px;
+        }
+    </style>
 </head>
 <body>
     
@@ -168,15 +177,32 @@
                                     </asp:Panel>
                                     <asp:Panel ID="pnlCheckOut" runat="server" ScrollBars="Auto" Height="500px" BorderColor="Black"
                                         BorderStyle="Inset" BorderWidth="1px" Visible="false">
-                                        <table style="width:258px;">
+                                        <table style="width:258px; height: 30px;">
                                             <tr>
-                                                <td align="left" class="auto-style1">
+                                                <td align="left" class="auto-style2">
                                                     Suma Produktów:
                                                 </td>
                                             
-                                                <td align="left">
+                                                <td align="left" class="auto-style3">
                                                     <asp:Label ID="lblTotalProducts" runat="server" Text="Suma" Font-Size="15pt" ForeColor="#6600CC"></asp:Label>
                                                 </td>
+                                            </tr>
+                                            <tr><td>Dane do wysyłki:</td></tr>
+                                            <tr>
+                                                <td><label id="imienazwlbl" runat="server">Imię i Nazwisko:</label></td>
+                                                <td><asp:TextBox ID="imienazwtb" runat="server" Width="100%"></asp:TextBox></td>
+                                            </tr>
+                                            <tr>
+                                                <td><label id="adrlbl" runat="server">Adres:</label></td>
+                                                <td><asp:TextBox ID="adrtb" runat="server" Width="100%" Height="100px"></asp:TextBox></td>
+                                            </tr>
+                                            <tr>
+                                                <td><label id="tellbl" runat="server">Nr Telefonu:</label></td>
+                                                <td><asp:TextBox ID="teltb" runat="server" Width="100%" ></asp:TextBox></td>
+                                            </tr>
+                                            <tr>
+                                                <td><asp:Button ID="zamowButton" runat="server" Text="Zamów Produkty" OnClick="zamowButton_Click" /></td>
+                                                <td></td>
                                             </tr>
                                         </table>
                                     </asp:Panel>
