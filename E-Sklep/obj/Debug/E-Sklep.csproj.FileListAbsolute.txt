@@ -1,0 +1,6 @@
+C:\Users\Sebastian\documents\visual studio 2013\Projects\E-Sklep\E-Sklep\bin\E-Sklep.dll.config
+C:\Users\Sebastian\documents\visual studio 2013\Projects\E-Sklep\E-Sklep\bin\E-Sklep.dll
+C:\Users\Sebastian\documents\visual studio 2013\Projects\E-Sklep\E-Sklep\bin\E-Sklep.pdb
+C:\Users\Sebastian\documents\visual studio 2013\Projects\E-Sklep\E-Sklep\obj\Debug\E-Sklep.csprojResolveAssemblyReference.cache
+C:\Users\Sebastian\documents\visual studio 2013\Projects\E-Sklep\E-Sklep\obj\Debug\E-Sklep.dll
+C:\Users\Sebastian\documents\visual studio 2013\Projects\E-Sklep\E-Sklep\obj\Debug\E-Sklep.pdb
