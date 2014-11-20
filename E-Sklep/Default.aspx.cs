@@ -169,34 +169,45 @@ namespace E_Sklep
 
         protected void zamowButton_Click(object sender, EventArgs e)
         {
-
-            string productids = string.Empty;
-            DataTable dt = (DataTable)Session["MyCart"];
-
-            for (int i = 0; i < dt.Rows.Count; i++)
+            try
             {
-                if (i == 0 || dt.Rows.Count == 1)
+                if (imienazwtb.Text == null || adrtb.Text == null || teltb.Text == null) 
                 {
-                    productids = productids + dt.Rows[i]["ProductID"].ToString();
+                    alertlbl.Text = "Błędnie wypełniony formularz";
                 }
-                else
+                else { 
+                string productids = string.Empty;
+                DataTable dt = (DataTable)Session["MyCart"];
+
+                for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    productids = productids + "," + dt.Rows[i]["ProductID"].ToString();
+                    if (i == 0 || dt.Rows.Count == 1)
+                    {
+                        productids = productids + dt.Rows[i]["ProductID"].ToString();
+                    }
+                    else
+                    {
+                        productids = productids + "," + dt.Rows[i]["ProductID"].ToString();
+                    }
+                }
+
+                Order k = new Order()
+                {
+                    Dane = imienazwtb.Text,
+                    Adres = adrtb.Text,
+                    Telefon = teltb.Text,
+                    Produkty = productids,
+
+                };
+                k.AddNewOrder();
+                alertlbl.Text = "Zamówienie przyjęte!";
+                ClearText();
                 }
             }
-
-            Order k = new Order()
+            catch (Exception ex)
             {
-                Dane = imienazwtb.Text,
-                Adres = adrtb.Text,
-                Telefon = teltb.Text,
-                Produkty = productids,
-                
-            };
-            k.AddNewOrder();
-          
-            ClearText();
-
+                alertlbl.Text = "Błędnie wypełniony formularz";
+            }
        
 
         }

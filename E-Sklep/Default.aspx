@@ -204,6 +204,7 @@
                                                 <td><asp:Button ID="zamowButton" runat="server" Text="Zamów Produkty" OnClick="zamowButton_Click" /></td>
                                                 <td></td>
                                             </tr>
+                                            <tr><td><asp:Label ID="alertlbl" runat="server" ForeColor="Red"></asp:Label></td></tr>
                                         </table>
                                     </asp:Panel>
                                 </td>
